@@ -1,0 +1,32 @@
+<!-- Create a webpage that always displays the current time. The time should be
+updated every second. Hint: use setInterval. 
+Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+Note: I just kept it simple(and did not create a separate .js file) as per other examples given as a part of this folder. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time</title>
+</head>
+
+<body>
+    <h1>Current Time</h1>
+    <div id="dispTime"></div>
+    <script>
+        const currentTime = () => {
+            let currentDate = new Date()                                // instantiating a new date object
+            let time = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`
+            div = document.getElementById("dispTime")                   // get the div element from HTML
+            div.innerHTML = time                                        // display the time in the div element
+        }
+        setInterval(currentTime, 1000)                                  // updating the current time after every 1 second
+    </script>
+</body>
+
+</html>

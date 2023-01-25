@@ -1,0 +1,34 @@
+<!-- Create a website that will display at least one random Chuck Norris joke. Use
+the API found here: https://api.chucknorris.io/. You can use this URL to
+fetch the jokes: https://api.chucknorris.io/jokes/random. 
+
+Note: I just kept it simple(and did not create a separate .js file) as per other examples given as a part of this folder. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuck Norris Jokes</title>
+</head>
+
+<body>
+    <h1>Chuck Norris Random Jokes</h1>
+    <div id="dispJokes"></div>
+
+    <script>
+        fetch("https://api.chucknorris.io/jokes/random")
+            .then(res => res.json())
+            .then(result => {
+                div = document.getElementById("dispJokes")                          // get the div element from HTML
+                div.innerHTML = `The joke of the day is:<br><br> ${result.value}`   // display the joke in the div element
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    </script>
+</body>
+
+</html>
